@@ -36,11 +36,11 @@ public class WaveAlgorithm {
         // Создадим FIFO-очередь (Queue) с точкой (x=0, y=0) и установим visited[][]
         // true.
         boolean[][] visited = new boolean[row][col]; // visited[][] - true/false - был/не был посещен.
-        Queue<Integer> queue = new LinkedList<Integer>(); // FIFO-очередь.
-        queue.add(new int(x, y)); // Добавляем точку (x=0, y=0) в FIFO-очередь.
+        Queue<Point> queue = new LinkedList<Point>(); // FIFO-очередь.
+        queue.add(new Point(x, y)); // Добавляем точку (x=0, y=0) в FIFO-очередь.
         visited[x][y] = true;
         while (!queue.isEmpty()) {
-            int p = queue.remove(); // Удаляем точку p c FIFO-очередь.
+            Point p = queue.remove(); // Удаляем точку p c FIFO-очередь.
             // проверка всех 4 возможных движений из текущей ячейки px, py и обновление
             // значения стоимости для каждого допустимого движения.
             if (isValid(p.x + 1, p.y, row, col) && !visited[p.x + 1][p.y]) {// движение вниз
